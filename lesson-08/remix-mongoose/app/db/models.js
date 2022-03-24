@@ -3,7 +3,11 @@ import { mongoose } from "mongoose";
 const { Schema } = mongoose;
 
 const bookSchema = new Schema({
-  title: String,
+  title: {
+    type: String,
+    required: true,
+    minLength: [3, "That's too short"],
+  },
 });
 
 export const models = [
